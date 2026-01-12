@@ -1,1 +1,6 @@
-ghcr.io/open-webui/open-webui:main
+      - name: Build and push image Aliyun
+        run: |
+          docker pull ghcr.io/open-webui/open-webui:main
+          docker tag ghcr.io/open-webui/open-webui:main registry.cn-hangzhou.aliyuncs.com/mywebui2026/open-webui:latest
+          docker login --username=Aurora56921 --password=${{ secrets.ALIYUN_REGISTRY_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
+          docker push registry.cn-hangzhou.aliyuncs.com/mywebui2026/open-webui:latest
