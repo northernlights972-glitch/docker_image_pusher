@@ -57,7 +57,7 @@ jobs:
 
     - name: Build and push image Aliyun
       run: |
-        docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
+        docker login -u ${{ secrets.ALIYUN_REGISTRY_USER }} -p ${{ secrets.ALIYUN_REGISTRY_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
         docker pull ghcr.io/open-webui/open-webui:main
         docker tag ghcr.io/open-webui/open-webui:main registry.cn-hangzhou.aliyuncs.com/mywebui2026/open-webui:latest
         docker push registry.cn-hangzhou.aliyuncs.com/mywebui2026/open-webui:latest
